@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<article class="panel">
+  <img id="article_pic" src="{{ page.image }}" class="img-thumbnail img-responsive">
+  <div class="panel-body">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-1 text-center img-thumbnail  pull-left" style="background: #A30000; width: 75px;">
+          <span style="font-size: 10px; color: white;"><B>{{ page.date | date: "%b"}}<br></B></span>
+          <span style="font-size: 20px; color: white;"><B>{{ page.date | date: "%d"}}<br></B></span>
+          <span style="font-size: 10px; color: white;"><B>{{ page.date | date: "%Y"}}<br></B></span>
+        </div>
+        <div class="col-xs-8">
+          <h3 id="title">{{page.title}}</h3>
+          <p id="subtitle"><small> Kategoria: <a href="#"><kbd>{{ page.category }}</kbd></a></small>
+            <small>Autor:<a href="#"><kbd>Kamil Budka</kbd></a></small></p>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-11">
+          <p id="subtitle" style="margin-top:5px;">
+                <span class="glyphicon glyphicon-tags"></span> 
+                {% for tag in page.tags %} 
+                  <a href="/tags/{{ tag }}" title="Zobacz posty z tagiem &quot;{{ tag }}&quot;">
+                    <kbd><small>{{ tag }}</small></kbd></a>  
+                {% if forloop.last != true %} {% endif %} {% endfor %}
+          </p>
+        </div>
+      </div>
+    </div>
+    <hr style="margin-top:5px">
+    <p class="text-justify" style="text-indent: 5%;">{{ content }}</p>
+  </div>
+</article>

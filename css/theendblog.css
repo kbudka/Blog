@@ -1,0 +1,51 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: #eee;
+}
+footer {
+  background-color: #222;
+  color: white;
+  position: absolute;
+  width: 100%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+    
+#postpic {
+  max-width: 50%;
+  margin-bottom: 20px;
+}
+
+#post-col {
+  margin-top: 75px;
+}
+
+a, a:hover, #title > a:hover{
+  color: #A30000;
+  text-decoration: none;
+}
+
+#title > a {
+  color: black;
+}
+#title {
+  margin:0;
+}
+#subtitle {
+  margin-top:5px;
+
+}
+
+kbd:hover {
+ background-color: #A30000;
+ padding: 5px;
+}
+
+#tags_side {
+  font-size: 20px;
+  text-align: center;
+}
+
+#tags_side kbd{
+  margin: 10px;
+}
