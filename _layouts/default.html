@@ -51,17 +51,34 @@
         </div> 
 
         <div class="col-lg-4">
-          <article class="panel panel-default" style="height: 500px;">
-            <div class="row">
-              <div class="col-xs-12">
-                <h1 class="text-center"><code>Tagi</code></h1>
-                  <div id="tags_side">
-                    {% for tag in site.tags %}    
-                      <a href="/tags/{{ tag[0] }}"><kbd>{{ tag[0] }}</kbd></a>
-                    {% endfor %}
-                  </div>
-                  
-                  
+          <article class="panel panel-default">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-12">
+                  <h2><span class="glyphicon glyphicon-time"></span> NAJNOWSZE POSTY</h2>
+                  <br>
+                    <div>
+                      {% for post in site.posts limit:5%}
+
+                        <p><a href="{{ post.url }}"><kbd>{{ post.title }}</kbd></a></p>
+
+                      {% endfor %}
+                    </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="panel panel-default">
+            <div class="panel-body">
+              <div class="row">
+                <div class="col-xs-12">
+                  <h2><span class="glyphicon glyphicon-tags"></span> TAGI</h2>
+                    <div id="tags_side">
+                      {% for tag in site.tags %}    
+                        <a href="/tags/{{ tag[0] }}"><kbd>{{ tag[0] }}</kbd></a>
+                      {% endfor %}
+                    </div>
+                </div>
               </div>
             </div>
           </article>
@@ -71,9 +88,9 @@
     
     <!-- Footer -->
 
-    <footer class="text-center">
-      <p style="margin:auto;"><small>Design & Code : <a href="#">Kamil Budka</a><br>
-      2014 | Wszystkie prawa zastrzeżone | TheEnd</small></p>
+    <footer>
+      <p><small>Design & Code : <a href="#" style="color: white;">Kamil Budka</a><br>
+        2014 | Copyright©  by Kamil Budka | TheEnd</small></p>
     </footer>
     
     <!-- /Footer -->

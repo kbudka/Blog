@@ -5,19 +5,23 @@ body {
 footer {
   background-color: #222;
   color: white;
-  position: absolute;
   width: 100%;
-  padding-top: 5px;
-  padding-bottom: 5px;
+  height: 80px;
+  text-align: center;
+
+}
+
+footer p {
+  padding-top: 20px;
 }
     
 #postpic {
   max-width: 50%;
-  margin-bottom: 20px;
 }
 
 #post-col {
   margin-top: 75px;
+  margin-bottom: 80px;
 }
 
 a, a:hover, #title > a:hover{
