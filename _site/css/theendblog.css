@@ -24,16 +24,20 @@ footer p {
   margin-bottom: 80px;
 }
 
-a, a:hover, #title > a:hover{
+a:hover, #title > a:hover{
   color: #A30000;
   text-decoration: none;
 }
-
-#title > a {
+a:hover {
+  font-weight: bold;
+}
+a {
   color: black;
 }
 #title {
-  margin:0;
+  max-width: 85%;
+  margin: 0;
+  padding: 0;
 }
 #subtitle {
   margin-top:5px;
@@ -53,3 +57,5 @@ kbd:hover {
 #tags_side kbd{
   margin: 10px;
 }
+
+
