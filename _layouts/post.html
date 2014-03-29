@@ -2,7 +2,7 @@
 layout: default
 ---
 <article class="panel">
-  <img id="article_pic" src="{{ page.image }}" class="img-thumbnail img-responsive">
+  <img id="article_pic" src="{{ site.baseurl }}{{ page.image }}" class="img-thumbnail img-responsive">
   <div class="panel-body">
     <div class="container">
       <div class="row">
@@ -23,7 +23,7 @@ layout: default
           <p id="subtitle" style="margin-top:5px;">
                 <span class="glyphicon glyphicon-tags"></span> 
                 {% for tag in page.tags %} 
-                  <a href="/tags/{{ tag }}" title="Zobacz posty z tagiem &quot;{{ tag }}&quot;">
+                  <a href="{{ site.baseurl }}/tags/{{ tag }}" title="Zobacz posty z tagiem &quot;{{ tag }}&quot;">
                     <kbd><small>{{ tag }}</small></kbd></a>  
                 {% if forloop.last != true %} {% endif %} {% endfor %}
           </p>
