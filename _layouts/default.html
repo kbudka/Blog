@@ -60,7 +60,7 @@
                     <div class="recent">
                       {% for post in site.posts limit:5%}
 
-                        <p style="text-transform: uppercase;"><b>[{{ post.date | date: "%b"}}, {{ post.date | date: "%d"}}]</b> <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></p>
+                        <p style="text-transform: uppercase;"><b>[{{ post.date | date: "%b"}}, {{ post.date | date: "%d"}}]</b> <a href="{{ site.baseurl | replace: '//', '/' }}{{ post.url }}">{{ post.title }}</a></p>
 
                       {% endfor %}
                     </div>
@@ -96,7 +96,7 @@
 
               {% for page in (1..paginator.total_pages) %}
                 {% if page == paginator.page %}
-                  <li class="active"><a href="#"> {{ page }}</a></li>
+                  <li class="active"> {{ page }} </li>
                 {% elsif page == 1 %}
                     <li><a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
                 {% else %}
@@ -105,9 +105,9 @@
               {% endfor %}
 
               {% if paginator.next_page %}
-                <li><a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Next &raquo;</a></li>
+                <li><a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Następna &raquo;</a></li>
               {% else %}
-                <li id="disabled_pag">&laquo; Następna</li>
+                <li id="disabled_pag">Następna &raquo</li>
               {% endif %}
             </ul>
           {% endif %}
