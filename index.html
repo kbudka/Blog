@@ -17,7 +17,7 @@ layout: default
 						          </div>
 						          <div class="media-body">
 						            <h3 id="title"><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></h3>
-						          	<p id="subtitle">Kategoria: <a href="#"><kbd>{{ post.category }}</kbd></a>
+						          	<p id="subtitle">Kategoria: <a href="{{ site.baseurl | replace: '//', '/' }}/{{post.categories | first }}.html"><kbd>{{ post.category }}</kbd></a>
 						            Autor:<a href="#"> <kbd>Kamil Budka</kbd></a></p>
 						            <span class="glyphicon glyphicon-tags"></span> 
 						                {% for tag in post.tags %} 

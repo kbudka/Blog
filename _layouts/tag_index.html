@@ -18,7 +18,7 @@ layout: default
 				               		</div>
 		                      		<div class="col-xs-8">
 							          <h3 id="title"><a href="{{ site.baseurl }}{{ post.url }}">{{post.title}}</a></h3>
-							          <p id="subtitle"><small> Kategoria: <a href="#"><kbd>{{ post.category }}</kbd></a></small>
+							          <p id="subtitle"><small> Kategoria: <a href="{{ site.baseurl | replace: '//', '/' }}/{{post.categories | first }}.html"><kbd>{{ post.category }}</kbd></a></small>
 							            <small>Autor:<a href="#"><kbd>Kamil Budka</kbd></a></small></p>
 							          
 							        </div>
