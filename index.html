@@ -21,7 +21,7 @@ layout: default
 						            Autor:<a href="#"> <kbd>Kamil Budka</kbd></a></p>
 						            <span class="glyphicon glyphicon-tags"></span> 
 						                {% for tag in post.tags %} 
-						                	<a href="{{ site.baseurl }}/tags/{{ tag }}" title="Zobacz posty z tagiem &quot;{{ tag }}&quot;">
+						                	<a href="{{ site.baseurl }}/tags/{{ tag }}/" title="Zobacz posty z tagiem &quot;{{ tag }}&quot;">
 						                    <kbd>{{ tag }}</kbd></a>  
 						                {% if forloop.last != true %} {% endif %} {% endfor %}
 						          	</p>
