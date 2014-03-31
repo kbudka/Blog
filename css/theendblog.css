@@ -68,6 +68,12 @@ kbd:hover {
   color: #999;
   cursor: not-allowed;
 }
+
+.pagination {
+  width: 76%;
+  margin-left: 12%;
+}
+
 .pagination > .active {
   position: relative;
   float: left;

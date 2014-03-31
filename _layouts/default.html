@@ -55,7 +55,7 @@
 
     <div id="post-col" class="container">
       <div class="row">
-        <div class="col-lg-8">
+        <div class="col-lg-8 center-block">
           
           
           {{ content }}
@@ -88,37 +88,7 @@
           {% endif %}
         </div> 
 
-        <div class="col-lg-4">
-          <article class="panel panel-default">
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-xs-12">
-                  <h2><span class="glyphicon glyphicon-time"></span> NAJNOWSZE POSTY</h2>
-                  <br>
-                    <div>
-                      {% for post in site.posts limit:5%}
-                        <p style="text-transform: uppercase;"><b>[{{ post.date | date: "%b"}}, {{ post.date | date: "%d"}}]</b> <a href="{{ site.baseurl | replace: '//', '/' }}{{ post.url }}">{{ post.title }}</a></p>
-                      {% endfor %}
-                    </div>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="panel panel-default">
-            <div class="panel-body">
-              <div class="row">
-                <div class="col-xs-12">
-                  <h2><span class="glyphicon glyphicon-tags"></span> TAGI</h2>
-                    <div id="tags_side">
-                      {% for tag in site.tags %}    
-                        <a href="{{ site.baseurl }}/tags/{{ tag | first }}/"><kbd>{{ tag[0] }}</kbd></a>
-                      {% endfor %}
-                    </div>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
+        
       </div>  
     </div>
     
