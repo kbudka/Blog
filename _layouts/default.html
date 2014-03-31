@@ -26,28 +26,28 @@
             </button>
             <a class="navbar-brand" href="{{ site.baseurl }}/">TheEnd</a>
           </div>
-        <div>
-          <div id="nav" class="collapse navbar-collapse navbar-right">
-          <ul class="nav navbar-nav">
-            {% for category in site.categories %}
-              <li id="nav_link" class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{category | first}} <span class="caret"></span></a>
-                
-                <ul id="navbar-drop" class="dropdown-menu dropdown-menu-right">
-                  {% for posts in category %}
-                    {% for post in posts limit:5 %}
-                      {% if post.url %}
-                        <a href="{{ site.baseurl }}{{post.url}}"><li id="drop_link"><b class="right-caret"></b> {{ post.title }}</li></a>
-                      {% endif %}
-                    {% endfor %}
-                  {% endfor %}
-                  <a href="{{ site.baseurl | replace: '//', '/' }}/{{category | first }}.html"><li id="drop_link"><b class="right-caret"></b> <span style="color: white;">Wszystkie z tej kategorii...</span></li></a>
-                  <li class="divider"></li>
-                </ul>
-            </li>
-            {% endfor %}
-          </ul>
-        </div>
+          <div>
+            <div id="nav" class="collapse navbar-collapse navbar-right">
+              <ul class="nav navbar-nav">
+                {% for category in site.categories %}
+                  <li id="nav_link" class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{category | first}} <span class="caret"></span></a>
+                    
+                    <ul id="navbar-drop" class="dropdown-menu dropdown-menu-right">
+                      {% for posts in category %}
+                        {% for post in posts limit:5 %}
+                          {% if post.url %}
+                            <a href="{{ site.baseurl }}{{post.url}}"><li id="drop_link"><b class="right-caret"></b> {{ post.title }}</li></a>
+                          {% endif %}
+                        {% endfor %}
+                      {% endfor %}
+                      <a href="{{ site.baseurl | replace: '//', '/' }}/{{category | first }}.html"><li id="drop_link"><b class="right-caret"></b> <span style="color: white;">Wszystkie z tej kategorii...</span></li></a>
+                      <li class="divider"></li>
+                    </ul>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -57,8 +57,35 @@
       <div class="row">
         <div class="col-lg-8">
           
+          
           {{ content }}
 
+
+          {% if paginator.total_pages > 1 %}
+            <ul class="pagination">
+              {% if paginator.previous_page %}
+                <li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Poprzenia</a></li>
+              {% else %}
+                <li id="disabled_pag">&laquo; Poprzenia</li>
+              {% endif %}
+
+              {% for page in (1..paginator.total_pages) %}
+                {% if page == paginator.page %}
+                  <li class="active"> {{ page }} </li>
+                {% elsif page == 1 %}
+                    <li><a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
+                {% else %}
+                    <li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
+                {% endif %}
+              {% endfor %}
+
+              {% if paginator.next_page %}
+                <li><a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Następna &raquo;</a></li>
+              {% else %}
+                <li id="disabled_pag">Następna &raquo</li>
+              {% endif %}
+            </ul>
+          {% endif %}
         </div> 
 
         <div class="col-lg-4">
@@ -92,37 +119,7 @@
             </div>
           </article>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-7 col-lg-offset-1">
-          {% if paginator.total_pages > 1 %}
-            <ul class="pagination">
-              {% if paginator.previous_page %}
-                <li><a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">&laquo; Poprzenia</a></li>
-              {% else %}
-                <li id="disabled_pag">&laquo; Poprzenia</li>
-              {% endif %}
-
-              {% for page in (1..paginator.total_pages) %}
-                {% if page == paginator.page %}
-                  <li class="active"> {{ page }} </li>
-                {% elsif page == 1 %}
-                    <li><a href="{{ '/index.html' | prepend: site.baseurl | replace: '//', '/' }}">{{ page }}</a></li>
-                {% else %}
-                    <li><a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a></li>
-                {% endif %}
-              {% endfor %}
-
-              {% if paginator.next_page %}
-                <li><a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Następna &raquo;</a></li>
-              {% else %}
-                <li id="disabled_pag">Następna &raquo</li>
-              {% endif %}
-            </ul>
-          {% endif %}
-        </div>
-      </div>
-      
+      </div>  
     </div>
     
     <!-- Footer -->
